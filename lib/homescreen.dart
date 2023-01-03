@@ -44,11 +44,13 @@ class HomeScreen extends StatelessWidget {
               ),
               Container(
                 height: 500,
-                padding: const EdgeInsets.only(left: 32),
+                padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Swiper(
+                  //physics: const ScrollPhysics(),
+                  //autoplay: true,
                   itemCount: sections.length,
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
-                  layout: SwiperLayout.STACK,
+                  layout: SwiperLayout.DEFAULT,
                   pagination: const SwiperPagination(
                     builder: DotSwiperPaginationBuilder(
                         activeSize: 20,
@@ -90,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                                         sections[index].name,
                                         style: const TextStyle(
                                           //fontFamily: 'Avenir',
-                                          fontSize: 44,
+                                          fontSize: 32,
                                           color: Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
                                         ),
@@ -131,9 +133,17 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Hero(
-                            tag: sections[index].position,
-                            child: Image.asset(sections[index].iconImage),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 250,
+                                child: Hero(
+                                  tag: sections[index].position,
+                                  child: Image.asset(sections[index].iconImage),
+                                ),
+                              ),
+                            ],
                           ),
                           // Positioned(
                           //   right: 24,
