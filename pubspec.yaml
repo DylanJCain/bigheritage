@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0
+version: 1.0.2
 
 environment:
   sdk: '>=2.18.6 <4.0.0'
@@ -73,6 +73,25 @@ flutter:
      - assets/uranus.png
      - assets/venus.png
      - assets/audio/test.mp3
+     - assets/audio/admiralsoffice.mp4
+     - assets/audio/arcticconvoy.mp4
+     - assets/audio/operationsroom.mp4
+     - assets/audio/powercorridor.mp4
+     - assets/audio/radioroom.mp4
+     - assets/audio/street.mp4
+     - assets/audio/switchboards.mp4
+     - assets/admiralsoffice.jpg
+     - assets/arcticconvoy.jpg
+     - assets/johnnywalkermemorial.jpg
+     - assets/merchantnavy.jpg
+     - assets/operationsroom.jpg
+     - assets/powercorridor.jpg
+     - assets/radioroom.jpg
+     - assets/street.jpg
+     - assets/switchboard.jpg
+     - assets/teleprinter.jpg
+     - assets/wrens.jpg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

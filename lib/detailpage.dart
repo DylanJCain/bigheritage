@@ -72,16 +72,16 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           textAlign: TextAlign.left,
                         ),
-                        const Text(
-                          'Solar System',
-                          style: TextStyle(
-                            fontFamily: 'Avenir',
-                            fontSize: 31,
-                            color: primaryTextColor,
-                            fontWeight: FontWeight.w300,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
+                        // const Text(
+                        //   'Solar System',
+                        //   style: TextStyle(
+                        //     fontFamily: 'Avenir',
+                        //     fontSize: 31,
+                        //     color: primaryTextColor,
+                        //     fontWeight: FontWeight.w300,
+                        //   ),
+                        //   textAlign: TextAlign.left,
+                        // ),
                         const Divider(color: Colors.black38),
                         const SizedBox(height: 32),
                         Text(
@@ -96,67 +96,8 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ),
                         const SizedBox(height: 32),
-                        const Divider(color: Colors.black38),
                       ],
                     ),
-                  ),
-                  Slider(
-                    activeColor: primaryTextColor,
-                    inactiveColor: contentTextColor,
-                    min: 0,
-                    max: duration.inSeconds.toDouble(),
-                    value: position.inSeconds.toDouble(),
-                    onChanged: (value) {
-                      final position = Duration(seconds: value.toInt());
-                      player.seek(position);
-                      player.resume();
-                    },
-                  ),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(formatTime(position.inSeconds)),
-                        Text(formatTime((duration - position).inSeconds)),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: primaryTextColor,
-                        foregroundColor: secondaryTextColor,
-                        radius: 25,
-                        child: IconButton(
-                          icon: Icon(
-                            isPlaying ? Icons.pause : Icons.play_arrow,
-                          ),
-                          onPressed: () {
-                            if (isPlaying) {
-                              player.pause();
-                            } else {
-                              player.play(AssetSource('audio/test.mp3'));
-                            }
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundColor: primaryTextColor,
-                        foregroundColor: secondaryTextColor,
-                        child: IconButton(
-                          icon: const Icon(Icons.stop),
-                          onPressed: () {
-                            player.stop();
-                          },
-                        ),
-                      ),
-                    ],
                   ),
                   Container(
                     height: 250,
@@ -186,7 +127,10 @@ class _DetailPageState extends State<DetailPage> {
               right: -64,
               child: Hero(
                   tag: widget.sectionInfo.position,
-                  child: Image.asset(widget.sectionInfo.iconImage)),
+                  child: CircleAvatar(
+                      radius: 150,
+                      backgroundImage:
+                          AssetImage(widget.sectionInfo.iconImage))),
             ),
             Positioned(
               top: 60,
@@ -202,6 +146,72 @@ class _DetailPageState extends State<DetailPage> {
                 textAlign: TextAlign.left,
               ),
             ),
+            Positioned(
+                bottom: 20,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    Slider(
+                      activeColor: primaryTextColor,
+                      inactiveColor: contentTextColor,
+                      min: 0,
+                      max: duration.inSeconds.toDouble(),
+                      value: position.inSeconds.toDouble(),
+                      onChanged: (value) {
+                        final position = Duration(seconds: value.toInt());
+                        player.seek(position);
+                        player.resume();
+                      },
+                    ),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(formatTime(position.inSeconds)),
+                          Text(formatTime((duration - position).inSeconds)),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: primaryTextColor,
+                          foregroundColor: secondaryTextColor,
+                          radius: 25,
+                          child: IconButton(
+                            icon: Icon(
+                              isPlaying ? Icons.pause : Icons.play_arrow,
+                            ),
+                            onPressed: () {
+                              if (isPlaying) {
+                                player.pause();
+                              } else {
+                                player.play(
+                                    AssetSource(widget.sectionInfo.audio));
+                              }
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        CircleAvatar(
+                          radius: 25,
+                          backgroundColor: primaryTextColor,
+                          foregroundColor: secondaryTextColor,
+                          child: IconButton(
+                            icon: const Icon(Icons.stop),
+                            onPressed: () {
+                              player.stop();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {

@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Container(
                 height: 500,
-                padding: const EdgeInsets.only(left: 16, right: 16),
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 35),
                 child: Swiper(
                   //physics: const ScrollPhysics(),
                   //autoplay: true,
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              const SizedBox(height: 100),
+                              const SizedBox(height: 120),
                               Card(
                                 elevation: 8,
                                 shape: RoundedRectangleBorder(
@@ -98,16 +98,16 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                         textAlign: TextAlign.left,
                                       ),
-                                      const Text(
-                                        'Solar System',
-                                        style: TextStyle(
-                                          fontFamily: 'Avenir',
-                                          fontSize: 23,
-                                          color: primaryTextColor,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
+                                      // const Text(
+                                      //   'Solar System',
+                                      //   style: TextStyle(
+                                      //     fontFamily: 'Avenir',
+                                      //     fontSize: 23,
+                                      //     color: primaryTextColor,
+                                      //     fontWeight: FontWeight.w500,
+                                      //   ),
+                                      //   textAlign: TextAlign.left,
+                                      // ),
                                       const SizedBox(height: 32),
                                       Row(
                                         children: const <Widget>[
@@ -140,7 +140,15 @@ class HomeScreen extends StatelessWidget {
                                 height: 250,
                                 child: Hero(
                                   tag: sections[index].position,
-                                  child: Image.asset(sections[index].iconImage),
+                                  child: ClipRRect(
+                                    borderRadius:
+                                        const BorderRadiusDirectional.only(
+                                            topStart: Radius.circular(32),
+                                            topEnd: Radius.circular(32)),
+                                    child: Image(
+                                        image: AssetImage(
+                                            sections[index].iconImage)),
+                                  ),
                                 ),
                               ),
                             ],
