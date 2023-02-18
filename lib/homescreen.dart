@@ -112,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                                       Row(
                                         children: const <Widget>[
                                           Text(
-                                            'Know more',
+                                            'Know more TEST',
                                             style: TextStyle(
                                               fontFamily: 'Avenir',
                                               fontSize: 18,
