@@ -14,6 +14,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   final player = AudioPlayer();
+
   bool isPlaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
@@ -43,6 +44,17 @@ class _DetailPageState extends State<DetailPage> {
         position = newPosition;
       });
     });
+
+    const AudioContext audioContext = AudioContext(
+      iOS: AudioContextIOS(
+        category: AVAudioSessionCategory.ambient,
+        options: [
+          AVAudioSessionOptions.defaultToSpeaker,
+          AVAudioSessionOptions.mixWithOthers,
+        ],
+      ),
+    );
+    AudioPlayer.global.setGlobalAudioContext(audioContext);
   }
 
   @override
