@@ -47,7 +47,7 @@ class _DetailPageState extends State<DetailPage> {
 
     const AudioContext audioContext = AudioContext(
       iOS: AudioContextIOS(
-        category: AVAudioSessionCategory.ambient,
+        category: AVAudioSessionCategory.playback,
         options: [
           AVAudioSessionOptions.defaultToSpeaker,
           AVAudioSessionOptions.mixWithOthers,
@@ -56,8 +56,6 @@ class _DetailPageState extends State<DetailPage> {
     );
     AudioPlayer.global.setGlobalAudioContext(audioContext);
   }
-
-  AudioContextConfig audioConfig = AudioContextConfig(respectSilence: true);
 
   @override
   Widget build(BuildContext context) {
