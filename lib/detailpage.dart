@@ -57,6 +57,8 @@ class _DetailPageState extends State<DetailPage> {
     AudioPlayer.global.setGlobalAudioContext(audioContext);
   }
 
+  AudioContextConfig audioConfig = AudioContextConfig(respectSilence: true);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,16 +86,6 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           textAlign: TextAlign.left,
                         ),
-                        // const Text(
-                        //   'Solar System',
-                        //   style: TextStyle(
-                        //     fontFamily: 'Avenir',
-                        //     fontSize: 31,
-                        //     color: primaryTextColor,
-                        //     fontWeight: FontWeight.w300,
-                        //   ),
-                        //   textAlign: TextAlign.left,
-                        // ),
                         const Divider(color: Colors.black38),
                         const SizedBox(height: 32),
                         Text(
@@ -228,6 +220,7 @@ class _DetailPageState extends State<DetailPage> {
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
                 Navigator.pop(context);
+                player.stop();
               },
             ),
           ],
