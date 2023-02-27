@@ -79,6 +79,8 @@ flutter:
      - assets/audio/powercorridor.mp4
      - assets/audio/radioroom.mp4
      - assets/audio/street.mp4
+     - assets/audio/teleprinter.mp4
+     - assets/audio/walker.mp4
      - assets/audio/switchboards.mp4
      - assets/admiralsoffice.jpg
      - assets/arcticconvoy.jpg

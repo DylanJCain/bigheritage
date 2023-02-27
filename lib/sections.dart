@@ -29,7 +29,7 @@ List<SectionInfo> sections = [
       description:
           "Forming the backbone of the communication of Western Approaches, these machines were essential!",
       images: [],
-      audio: ''),
+      audio: 'audio/teleprinter.mp4'),
   SectionInfo(3,
       name: 'The Switchboards',
       iconImage: 'assets/switchboard.jpg',
@@ -56,7 +56,7 @@ List<SectionInfo> sections = [
       description:
           "Dedicated to our Merchant Navy, the civilian men and women who served on the Atlantic Ocean in conditions just as bad as the Royal Navy.",
       images: [],
-      audio: ''),
+      audio: 'audio/merchant.mp4'),
   SectionInfo(7,
       name: 'The Arctic Convoys Room',
       iconImage: 'assets/arcticconvoy.jpg',
@@ -84,12 +84,12 @@ List<SectionInfo> sections = [
       description:
           "Here you can watch a video dedicated to Johnny Walker that details just a few of his victories, and finally his death and funeral.",
       images: [],
-      audio: ''),
-  SectionInfo(11,
-      name: 'The Wrens Museum',
-      iconImage: 'assets/wrens.jpg',
-      description:
-          "Celebrating the WRNS and the Wrens who served. The Wrens Museum spans decades to show how life as a woman in the Navy has changed over the years.",
-      images: [],
-      audio: ''),
+      audio: 'audio/walker.mp4'),
+  // SectionInfo(11,
+  //     name: 'The Wrens Museum',
+  //     iconImage: 'assets/wrens.jpg',
+  //     description:
+  //         "Celebrating the WRNS and the Wrens who served. The Wrens Museum spans decades to show how life as a woman in the Navy has changed over the years.",
+  //     images: [],
+  //     audio: ''),
 ];

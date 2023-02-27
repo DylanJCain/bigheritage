@@ -52,6 +52,7 @@ class HomeScreen extends StatelessWidget {
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
                   layout: SwiperLayout.DEFAULT,
                   pagination: const SwiperPagination(
+                    margin: EdgeInsets.only(top: 60),
                     builder: DotSwiperPaginationBuilder(
                         activeSize: 20,
                         space: 8,
@@ -138,6 +139,7 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               SizedBox(
                                 height: 250,
+                                width: 372,
                                 child: Hero(
                                   tag: sections[index].position,
                                   child: ClipRRect(
@@ -147,7 +149,8 @@ class HomeScreen extends StatelessWidget {
                                             topEnd: Radius.circular(32)),
                                     child: Image(
                                         image: AssetImage(
-                                            sections[index].iconImage)),
+                                            sections[index].iconImage),
+                                        fit: BoxFit.contain),
                                   ),
                                 ),
                               ),
